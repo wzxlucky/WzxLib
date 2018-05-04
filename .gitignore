@@ -53,3 +53,12 @@ google-services.json
 freeline.py
 freeline/
 freeline_project_description.json
+app/src/test/
+app/src/androidTest/
+.idea/
+gradlew.bat
+app/.gitignore
+app/proguard-rules.pro
+settings.gradle
+gradle.properties
+gradlew
