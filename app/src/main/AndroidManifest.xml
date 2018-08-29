@@ -19,6 +19,9 @@
         <activity
             android:name=".treeview.TreeView"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".dialogfragment.MyDialogFragmentMain"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
