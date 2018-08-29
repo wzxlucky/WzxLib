@@ -22,6 +22,15 @@
         <activity
             android:name=".dialogfragment.MyDialogFragmentMain"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".leftrightlayout.LeftRightRecyclerMain"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".flylayout.FlyLayoutMain"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".multilayout.MultiLayoutMain"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
