@@ -1,5 +1,8 @@
 package com.one.wsy.wzxlib.multilayout.bean;
 
+/**
+ * @author wsy
+ */
 public class Entity {
 
     public static final int ITEM_ONE = 1;

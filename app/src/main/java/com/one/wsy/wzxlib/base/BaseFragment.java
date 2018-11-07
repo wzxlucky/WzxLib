@@ -2,69 +2,66 @@ package com.one.wsy.wzxlib.base;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
+import android.view.ViewGroup;
 
 import com.cazaea.sweetalert.SweetAlertDialog;
-import com.noober.background.BackgroundLibrary;
 
 /**
- * 描述：Activity基类
- * 名称: BaseActivity
+ * 描述：Fragment基类
+ * 名称: BaseFragment
+ * 作者: wsy
  * 版本: 1.0
- * 日期: 2018/4/17 9:19
- *
- * @author wsy
+ * 日期: 2018/10/11 15:11
  */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
-
-    protected final String SUCCESS_GET_CODE = "200";
-
-    protected final String SUCCESS_POST_CODE = "201";
+public abstract class BaseFragment extends Fragment implements View.OnClickListener {
 
     protected final String TAG = this.getClass().getSimpleName();
-
-    protected InputMethodManager inputMethodManager;
 
     private boolean isDoubleClick = true;
 
     protected SweetAlertDialog sweetAlertDialog;
 
+    private Context mContext;
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        BackgroundLibrary.inject(this);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView();
-        initView();
-        initData();
-        inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        mContext = getContext();
     }
 
-    /**
-     * 初始化布局
-     */
-    public abstract void setContentView();
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+    }
 
-    /**
-     * 初始化控件
-     */
-    public abstract void initView();
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = initView(inflater, container);
+        return view;
+    }
 
-    /**
-     * 业务操作
-     */
-    public abstract void initData();
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        initData();
+    }
 
-    /**
-     * 点击事件
-     *
-     * @param v 控件视图
-     */
-    public abstract void onClickEvent(View v);
-
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (sweetAlertDialog != null) {
+            if (sweetAlertDialog.isShowing()) {
+                sweetAlertDialog.dismiss();
+            }
+            sweetAlertDialog = null;
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -77,9 +74,20 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    public <T extends View> T findView(int resId) {
-        return (T) super.findViewById(resId);
-    }
+    /**
+     * 初始化控件
+     */
+    public abstract View initView(LayoutInflater inflater, ViewGroup container);
+
+    /**
+     * 业务操作
+     */
+    public abstract void initData();
+
+    /**
+     * View点击
+     **/
+    public abstract void onClickEvent(View v);
 
 
     /**
@@ -88,7 +96,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      *
      * @return
      */
-
     private static final int MIN_DELAY_TIME = 1500;
 
     private static long lastClickTime;
@@ -107,26 +114,14 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         return flag;
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (sweetAlertDialog != null) {
-            if (sweetAlertDialog.isShowing()) {
-                sweetAlertDialog.dismiss();
-            }
-            sweetAlertDialog = null;
-        }
-    }
-
-
     /**
      * 单个按钮警告对话框
      *
-     * @param msg                  提示信息
-     * @param onSweetClickListener 接口回调
+     * @param msg
+     * @param onSweetClickListener
      */
     protected void getWarmDialog(String msg, SweetAlertDialog.OnSweetClickListener onSweetClickListener) {
-        sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE);
+        sweetAlertDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE);
         sweetAlertDialog.setTitleText(msg);
         sweetAlertDialog.setConfirmText("确定");
         sweetAlertDialog.setConfirmClickListener(onSweetClickListener);
@@ -136,12 +131,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /**
      * 两个按钮警告对话框
      *
-     * @param msg                  提示信息
-     * @param onSweetClickListener 接口回调
-     * @param onCancelListener     接口回调
+     * @param msg
+     * @param onSweetClickListener
+     * @param onCancelListener
      */
     protected void getWarmDialogTwoBtn(String msg, SweetAlertDialog.OnSweetClickListener onSweetClickListener, SweetAlertDialog.OnSweetClickListener onCancelListener) {
-        sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE);
+        sweetAlertDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.WARNING_TYPE);
         sweetAlertDialog.setTitleText(msg);
         sweetAlertDialog.setConfirmText("确定");
         sweetAlertDialog.setCancelText("取消");
@@ -153,11 +148,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /**
      * 成功对话框
      *
-     * @param msg                  提示信息
-     * @param onSweetClickListener 接口回调
+     * @param msg
+     * @param onSweetClickListener
      */
     protected void getSuccessDialog(String msg, SweetAlertDialog.OnSweetClickListener onSweetClickListener) {
-        sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE);
+        sweetAlertDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.SUCCESS_TYPE);
         sweetAlertDialog.setTitleText(msg);
         sweetAlertDialog.setConfirmText("确定");
         sweetAlertDialog.setConfirmClickListener(onSweetClickListener);
@@ -168,11 +163,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /**
      * 失败对话框
      *
-     * @param msg                  提示信息
-     * @param onSweetClickListener 接口回调
+     * @param msg
+     * @param onSweetClickListener
      */
     protected void getErrorDialog(String msg, SweetAlertDialog.OnSweetClickListener onSweetClickListener) {
-        sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE);
+        sweetAlertDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.ERROR_TYPE);
         sweetAlertDialog.setTitleText(msg);
         sweetAlertDialog.setConfirmText("确定");
         sweetAlertDialog.setConfirmClickListener(onSweetClickListener);
@@ -182,10 +177,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     /**
      * 加载对话框
      *
-     * @param msg 提示信息
+     * @param msg
      */
     protected void getProgressDialog(String msg) {
-        sweetAlertDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
+        sweetAlertDialog = new SweetAlertDialog(getContext(), SweetAlertDialog.PROGRESS_TYPE);
         sweetAlertDialog.setTitleText(msg);
         sweetAlertDialog.setCancelable(false);
         sweetAlertDialog.show();
@@ -200,17 +195,8 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    /**
-     * 隐藏软键盘
-     */
-    protected void hideSoftKeyboard() {
-        if (getWindow().getAttributes().softInputMode != WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN) {
-            if (getCurrentFocus() != null) {
-
-                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
-            }
-        }
+    public Context getMContext() {
+        return mContext;
     }
 
 }

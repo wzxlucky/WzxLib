@@ -16,11 +16,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 描述：
+ * 描述：RecyclerView 多布局
  * 名称: MultiLayoutMain
- * 作者: wsy
  * 版本: 1.0
  * 日期: 2018/5/4 15:27
+ *
+ * @author wsy
  */
 public class MultiLayoutMain extends AppCompatActivity {
 
@@ -33,7 +34,7 @@ public class MultiLayoutMain extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multi_main);
-        rv =  findViewById(R.id.rv);
+        rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
 

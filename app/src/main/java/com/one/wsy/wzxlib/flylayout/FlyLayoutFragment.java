@@ -15,6 +15,9 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+/**
+ * @author wsy
+ */
 public class FlyLayoutFragment extends Fragment {
 
 
@@ -40,7 +43,7 @@ public class FlyLayoutFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fly_layout_fr, container, false);
-        tv = (TextView) rootView.findViewById(R.id.tv);
+        tv = rootView.findViewById(R.id.tv);
         return rootView;
     }
 

@@ -20,11 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 描述：
+ * 描述：RecyclerView 左右联动
  * 名称: LeftRightRecyclerMain
- * 作者: wsy
  * 版本: 1.0
  * 日期: 2018/5/4 15:34
+ *
+ * @author wsy
  */
 public class LeftRightRecyclerMain extends AppCompatActivity {
 
@@ -39,8 +40,8 @@ public class LeftRightRecyclerMain extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_left_right_main);
-        rvLeft =  findViewById(R.id.rvLeft);
-        rvRight =  findViewById(R.id.rvRight);
+        rvLeft = findViewById(R.id.rvLeft);
+        rvRight = findViewById(R.id.rvRight);
 
         rvLeft.setLayoutManager(new LinearLayoutManager(this));
         rvRight.setLayoutManager(new LinearLayoutManager(this));

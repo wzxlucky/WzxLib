@@ -1,5 +1,8 @@
 package com.one.wsy.wzxlib.leftrightlayout.bean;
 
+/**
+ * @author wsy
+ */
 public class RightBean {
 
 

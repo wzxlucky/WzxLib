@@ -15,6 +15,9 @@ import android.widget.TextView;
 import com.one.wsy.wzxlib.R;
 
 
+/**
+ * @author wsy
+ */
 public class MyDialogFragment extends DialogFragment {
 
     @Override

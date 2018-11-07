@@ -14,9 +14,10 @@ import java.util.List;
 /**
  * 描述：
  * 名称: ExpandableItemAdapter
- * 作者: wsy
  * 版本: 1.0
  * 日期: 2018/8/29 9:31
+ *
+ * @author wsy
  */
 public class ExpandableItemAdapter extends BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder> {
 

@@ -1,34 +1,47 @@
 package com.one.wsy.wzxlib.dialogfragment;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
 import com.one.wsy.wzxlib.R;
+import com.one.wsy.wzxlib.base.BaseActivity;
 
 
 /**
- * 描述：
+ * 描述：DialogFragment对话框
  * 名称: MyDialogFragmentMain
- * 作者: wsy
  * 版本: 1.0
  * 日期: 2018/5/4 15:45
+ *
+ * @author wsy
  */
-public class MyDialogFragmentMain extends AppCompatActivity {
+public class MyDialogFragmentMain extends BaseActivity {
+
+    private Button btn;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void setContentView() {
         setContentView(R.layout.dialog_fragment_main);
-        Button btn = findViewById(R.id.btn);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
+
+    @Override
+    public void initView() {
+        btn = findView(R.id.btn);
+    }
+
+    @Override
+    public void initData() {
+        btn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClickEvent(View v) {
+        switch (v.getId()) {
+            case R.id.btn:
                 MyDialogFragment myDialogFragment = new MyDialogFragment();
                 myDialogFragment.show(getSupportFragmentManager(), "");
-            }
-        });
+                break;
+            default:
+        }
     }
 }

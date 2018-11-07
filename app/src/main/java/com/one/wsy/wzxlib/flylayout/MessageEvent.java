@@ -1,5 +1,8 @@
 package com.one.wsy.wzxlib.flylayout;
 
+/**
+ * @author wsy
+ */
 public class MessageEvent {
     private String message;
 

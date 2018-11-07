@@ -9,6 +9,9 @@ import com.one.wsy.wzxlib.leftrightlayout.bean.RightBean;
 
 import java.util.List;
 
+/**
+ * @author wsy
+ */
 public class RecyclerViewRightAdapter extends BaseQuickAdapter<RightBean, BaseViewHolder> {
 
 

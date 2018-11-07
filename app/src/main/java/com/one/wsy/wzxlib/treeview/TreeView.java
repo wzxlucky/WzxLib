@@ -18,11 +18,12 @@ import com.one.wsy.wzxlib.treeview.bean.LevelItemParent;
 import java.util.ArrayList;
 
 /**
- * 描述：
+ * 描述：RecyclerView 树形结构
  * 名称: TreeView
- * 作者: wsy
  * 版本: 1.0
  * 日期: 2018/8/29 15:49
+ *
+ * @author wsy
  */
 public class TreeView extends AppCompatActivity {
 

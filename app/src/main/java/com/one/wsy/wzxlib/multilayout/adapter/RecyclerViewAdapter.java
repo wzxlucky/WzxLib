@@ -7,6 +7,9 @@ import com.one.wsy.wzxlib.multilayout.bean.MultipleItem;
 
 import java.util.List;
 
+/**
+ * @author wsy
+ */
 public class RecyclerViewAdapter extends BaseMultiItemQuickAdapter<MultipleItem, BaseViewHolder> {
 
     public RecyclerViewAdapter(List<MultipleItem> data) {
@@ -20,13 +23,13 @@ public class RecyclerViewAdapter extends BaseMultiItemQuickAdapter<MultipleItem,
     protected void convert(BaseViewHolder helper, MultipleItem item) {
         switch (item.getItemType()) {
             case MultipleItem.ITEM_ONE:
-                helper.setText(R.id.tvOne,"这是第一个布局");
+                helper.setText(R.id.tvOne, "这是第一个布局");
                 break;
             case MultipleItem.ITEM_TWO:
-                helper.setText(R.id.tvTwo,"这是第二个布局");
+                helper.setText(R.id.tvTwo, "这是第二个布局");
                 break;
             case MultipleItem.ITEM_THREE:
-                helper.setText(R.id.tvThree,"这是第三个布局");
+                helper.setText(R.id.tvThree, "这是第三个布局");
                 break;
         }
     }

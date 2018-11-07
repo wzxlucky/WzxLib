@@ -10,6 +10,9 @@ import com.one.wsy.wzxlib.leftrightlayout.bean.LeftBean;
 
 import java.util.List;
 
+/**
+ * @author wsy
+ */
 public class RecyclerViewLeftAdapter extends BaseQuickAdapter<LeftBean, BaseViewHolder> {
 
     private int clickPosition;

@@ -9,6 +9,9 @@ import com.one.wsy.wzxlib.multilayout.bean.Entity;
 
 import java.util.List;
 
+/**
+ * @author wsy
+ */
 public class MultiDelegateAdapter extends BaseQuickAdapter<Entity, BaseViewHolder> {
 
     public MultiDelegateAdapter(List<Entity> data) {

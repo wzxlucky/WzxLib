@@ -7,9 +7,10 @@ import com.one.wsy.wzxlib.treeview.adapter.ExpandableItemAdapter;
 /**
  * 描述：
  * 名称: LevelItemParent
- * 作者: wsy
  * 版本: 1.0
  * 日期: 2018/8/29 9:28
+ *
+ * @author wsy
  */
 public class LevelItemParent extends AbstractExpandableItem<LevelItemChild> implements MultiItemEntity {
 
