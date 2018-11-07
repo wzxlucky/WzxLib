@@ -29,7 +29,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * 描述：
+ * 描述：仿美团城市选择
  * 名称: CityChooseActivity
  * 版本: 1.0
  * 日期: 2018/10/9 13:35
