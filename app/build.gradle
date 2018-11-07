@@ -53,4 +53,7 @@ dependencies {
     implementation 'com.github.cazaea:sweet-alert-dialog:1.0.0'
     implementation 'com.yanzhenjie:sofia:1.0.5'
     implementation 'com.noober.background:core:1.2.7'
+    //拼音
+    implementation 'com.github.promeg:tinypinyin:2.0.3'
+    implementation 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'
 }
