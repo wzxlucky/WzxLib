@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">每日菜场</string>
+    <string name="s_rmb">¥</string>
+    <string name="s_login">登录</string>
+    <string name="s_register">注册</string>
+    <string name="s_quit">退出</string>
+</resources>
